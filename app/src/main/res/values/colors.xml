@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="Gray">#808080</color>
+    <color name="fondo_caja_de_texto">#F6EAEA</color>
+    <color name="borde_caja_de_texto">#C91200</color>
+    <color name="primary_logo_color">#FF0000</color>
+    <color name="fondo_cargar_img">#1E1E1E</color>
+    <color name="item_background">#1E1E1E</color>
+    <color name="presentation_background">#222222</color>
 </resources>

@@ -2,4 +2,24 @@
     <string name="app_name">Tabs</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logo_description">Logo de la app</string>
+    <string name="formulario_nombre">Nombre</string>
+    <string name="formulario_anadir_nombre">Ingrese el nombre</string>
+    <string name="formulario_descripcion">Descripción</string>
+    <string name="formulario_anadir_descripcion">Escriba una descripción</string>
+    <string name="formulario_tipo_personaje">Tipo de personaje</string>
+    <string name="formulario_principal">Principal</string>
+    <string name="formulario_secundario">Secundario</string>
+    <string name="formulario_extra">Extra</string>
+    <string name="formulario_cargar_imagen">Cargar Imagen</string>
+    <string name="formulario_cargar_imagen_texto">Cargar imagen</string>
+    <string name="formulario_guardar_boton">Guardar</string>
+    <string name="presentacion_bienvenidos">Bienvenidos</string>
+    <string name="presentacion_description">App de Personajes</string>
+    <string name="consultar_principal">Principal</string>
+    <string name="consultar_secundario">Secundario</string>
+    <string name="consultar_foto_del_personaje">Foto del personaje</string>
+    <string name="nombre_jhonny">Jhonny Andres Gomez Villegas</string>
+    <string name="codigo_jhonny">191794</string>
+    <string name="nombre_materia">Tópicos avanzados en ingeniería</string>
 </resources>

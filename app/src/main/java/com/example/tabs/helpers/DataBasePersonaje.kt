@@ -17,6 +17,7 @@ class DataBasePersonaje(context : Context) : SQLiteOpenHelper(context, DATABASE_
         const val COLUMN_DESCRIPCION = "descripcion"
         const val COLUMN_PRINCIPAL = "principal"
         const val COLUMN_SECUNDARIO = "secundario"
+        const val COLUMN_EXTRA = "extra"
         const val COLUMN_IMAGEN = "imagen"
     }
 
@@ -27,6 +28,7 @@ class DataBasePersonaje(context : Context) : SQLiteOpenHelper(context, DATABASE_
                 $COLUMN_DESCRIPCION TEXT,
                 $COLUMN_PRINCIPAL INTEGER,
                 $COLUMN_SECUNDARIO INTEGER,
+                $COLUMN_EXTRA INTEGER,
                 $COLUMN_IMAGEN TEXT
                 )""")
         p0?.execSQL(createTable)
@@ -44,6 +46,7 @@ class DataBasePersonaje(context : Context) : SQLiteOpenHelper(context, DATABASE_
             put(COLUMN_DESCRIPCION , personaje.descripcion)
             put(COLUMN_PRINCIPAL , personaje.principal)
             put(COLUMN_SECUNDARIO , personaje.secundario)
+            put(COLUMN_EXTRA , personaje.extra)
             put(COLUMN_IMAGEN , personaje.imagen)
         }
         val resultado = db.insert(TABLE_NAME, null, contentValue)
@@ -61,8 +64,9 @@ class DataBasePersonaje(context : Context) : SQLiteOpenHelper(context, DATABASE_
                 val descripcion = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPCION))
                 val principal = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_PRINCIPAL))
                 val secundario = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_SECUNDARIO))
+                val extra = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_EXTRA))
                 val imagen = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMAGEN))
-                val personaje = Personaje( id ,   nombre,  descripcion,principal, secundario , imagen)
+                val personaje = Personaje( id ,   nombre,  descripcion,principal, secundario , extra, imagen)
                 namesList.add(personaje)
             } while (cursor.moveToNext())
         }

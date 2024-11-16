@@ -3,77 +3,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FormularioFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
     android:orientation="vertical"
     android:paddingHorizontal="32dp"
     android:paddingVertical="16dp"
-    >
+    tools:context=".fragments.FormularioFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre"
-        />
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/formulario_nombre"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:backgroundTint="@color/primary_logo_color"
+        android:textColorHint="@color/white"
+        android:hint="@string/formulario_anadir_nombre"
+        android:padding="12dp"
+        android:textColor="@color/white" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Descripción"
-        />
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/formulario_descripcion"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
     <EditText
+        android:textColorHint="@color/white"
         android:id="@+id/etDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary_logo_color"
+        android:hint="@string/formulario_anadir_descripcion"
         android:inputType="textMultiLine"
         android:lines="4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:padding="8dp"
+        android:textColor="@color/white" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tipo de personaje"
-        />
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/formulario_tipo_personaje"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
     <CheckBox
         android:id="@+id/cbPrincipal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Principal"
-        />
+        android:text="@string/formulario_principal"
+        android:textColor="@color/white" />
+
     <CheckBox
         android:id="@+id/cbSecundario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Secundario"
-        />
+        android:text="@string/formulario_secundario"
+        android:textColor="@color/white" />
+
+    <CheckBox
+        android:id="@+id/cbExtra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/formulario_extra"
+        android:textColor="@color/white" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cargar Imagen"
-        />
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/formulario_cargar_imagen"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
         android:layout_height="200dp"
-        >
+        android:layout_marginTop="15dp"
+        android:background="@color/fondo_cargar_img"
+        android:elevation="4dp">
+
         <ImageView
             android:id="@+id/ivFoto"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/formulario_cargar_imagen_texto"
             android:scaleType="centerCrop"
             android:src="@drawable/icon_upload"
-            android:layout_gravity="center" />
+            app:tint="@color/primary_logo_color" />
     </FrameLayout>
-
 
     <Button
         android:id="@+id/btnSave"
-        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar"
-        />
-
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/primary_logo_color"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingVertical="12dp"
+        android:text="@string/formulario_guardar_boton"
+        android:textColor="@color/white" />
 </LinearLayout>

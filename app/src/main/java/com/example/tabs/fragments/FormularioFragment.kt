@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tabs.helpers.DataBasePersonaje
 import com.example.tabs.models.Personaje
 import kotlin.io.path.Path
-import kotlin.io.path.inputStream
 import kotlin.io.path.outputStream
 
 
@@ -33,6 +32,7 @@ class FormularioFragment : Fragment() {
     private lateinit var etDescription : EditText
     private lateinit var cbPrincipal : CheckBox
     private lateinit var cbSecundario : CheckBox
+    private lateinit var cbExtra : CheckBox
     private lateinit var ivUpload : ImageView
     private lateinit var button : Button
     private lateinit var pickImage : ActivityResultLauncher<Intent>
@@ -44,7 +44,6 @@ class FormularioFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view  = inflater.inflate(R.layout.fragment_formulario, container, false)
         initComponent(view)
         initListener(view)
@@ -57,6 +56,7 @@ class FormularioFragment : Fragment() {
         etDescription = view.findViewById(R.id.etDescripcion)
         cbPrincipal = view.findViewById(R.id.cbPrincipal)
         cbSecundario = view.findViewById(R.id.cbSecundario)
+        cbExtra = view.findViewById(R.id.cbExtra)
         ivUpload = view.findViewById(R.id.ivFoto)
         button = view.findViewById(R.id.btnSave)
         dataBasePersonaje = DataBasePersonaje(view.context)
@@ -74,7 +74,7 @@ class FormularioFragment : Fragment() {
                         }
                     }
 
-                    imagenUri = filePath.toString() // Guarda esta ruta en SQLite
+                    imagenUri = filePath.toString()
                     ivUpload.setImageURI(Uri.fromFile(filePath.toFile()))
                 }
             }
@@ -94,12 +94,13 @@ class FormularioFragment : Fragment() {
             val descipcion = etDescription.text.toString()
             val principal = if (cbPrincipal.isChecked) 1 else 0
             val secundario = if(cbSecundario.isChecked) 1 else 0
+            val extra = if (cbExtra.isChecked) 1 else 0
             val imagen = imagenUri
-            if(validation(nombre, imagen, principal, secundario )){
+            if(validation(nombre, imagen, principal, secundario, extra )){
                dataBasePersonaje?.let {
                    val msg =  it.insertPersonaje(Personaje(
                         nombre = nombre, descripcion = descipcion, principal = principal,
-                        secundario = secundario, imagen = imagen
+                        secundario = secundario, extra = extra, imagen = imagen
                     ))
                     viewMsg(msg)
                 } ?: viewMsg("Error en la base de datos")
@@ -116,7 +117,7 @@ class FormularioFragment : Fragment() {
     }
 
 
-    private fun validation(nombre :String, img :String , principal: Int, secundario : Int) : Boolean{
+    private fun validation(nombre: String, img: String, principal: Int, secundario: Int, extra: Int) : Boolean{
         if(nombre.isEmpty()){
             viewMsg("El nombre no puede ir vacio")
             return false
@@ -127,7 +128,7 @@ class FormularioFragment : Fragment() {
             return false
         }
 
-        if(principal == 0 && secundario == 0){
+        if(principal == 0 && secundario == 0 && extra == 0){
             viewMsg("Debe seleccionar un tipo de personaje")
             return false
         }

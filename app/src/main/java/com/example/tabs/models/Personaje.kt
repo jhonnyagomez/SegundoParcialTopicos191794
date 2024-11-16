@@ -6,5 +6,6 @@ data class Personaje(
     val descripcion : String,
     val principal : Int,
     val secundario : Int,
+    val extra : Int,
     val imagen : String
 )
